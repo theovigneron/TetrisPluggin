@@ -1,0 +1,20 @@
+{
+    "appli.interfaces.ITetrisGame": {
+        "name": "TetrisGame",
+        "class": "plugins.TetrisGame",
+        "description": "Jeux",
+        "dependencies": [
+            {
+                "interface": "appli.interfaces.ITetrisDisplay"
+            }
+        ],
+        "type": "Game"
+   },
+   "appli.interfaces.ITetrisDisplay": {
+        "name": "TetrisDisplay",
+        "class": "plugins.displays.TetrisDisplay",
+        "description": "Application clicker avec un paysan",
+        "dependencies": [],
+        "type": "Affichage"
+    }
+}

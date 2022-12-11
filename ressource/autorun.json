@@ -1,0 +1,7 @@
+{
+    "appli.interfaces.ITetrisGame": {
+        "name": "TetrisGame",
+        "dependencies": [
+        ]
+    }
+}
