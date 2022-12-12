@@ -1,6 +1,8 @@
 package plugins;
 
-public class TetrisDisplay {
+import appli.interfaces.ITetrisDisplay;
+
+public class TetrisDisplay implements ITetrisDisplay {
 
 	public TetrisDisplay() {
 		

@@ -12,7 +12,7 @@
    },
    "appli.interfaces.ITetrisDisplay": {
         "name": "TetrisDisplay",
-        "class": "plugins.displays.TetrisDisplay",
+        "class": "plugins.TetrisDisplay",
         "description": "Application clicker avec un paysan",
         "dependencies": [],
         "type": "Affichage"

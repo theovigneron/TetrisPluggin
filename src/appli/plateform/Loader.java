@@ -34,7 +34,7 @@ public class Loader {
 		this.path = new File("").getAbsoluteFile().getAbsolutePath().concat(File.separator + "ressource");
 		try {
 			this.getPluginsToMap(path);
-		} catch (IOException | ParseException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -56,7 +56,6 @@ public class Loader {
 
 			});
 			DescripteurPlugin descripteur = new DescripteurPlugin(name, classname, description, dependencies, type);
-			System.out.println(descripteur);
 			plugins.put(name, descripteur);
 		}
 		return plugins;
@@ -86,6 +85,7 @@ public class Loader {
 	private Object getPluginFromJson(String interfaceName, JsonObject interfaceJson) throws Exception {
 		String pluginName = interfaceJson.get("name").getAsString();
 		DescripteurPlugin descriptorPlugin = Loader.plugins.get(pluginName);
+		
 		if (descriptorPlugin.getDependencies().size() == 0) {
 			return Loader.getPluginWithoutDependencies(descriptorPlugin);
 		}
@@ -110,17 +110,15 @@ public class Loader {
 			for (int i = 0; i < descriptorPlugin.getDependencies().size(); i++) {
 				dependenciesNames[i] = Class.forName(descriptorPlugin.getDependencies().get(i));
 			}
-		} catch (ClassNotFoundException | SecurityException e) {
-			e.printStackTrace();
-			return null;
-		}
-		try {
+
 			Object plugin = Class.forName(descriptorPlugin.getClassname()).getDeclaredConstructor(dependenciesNames).newInstance(dependencies.toArray());
-			return plugin;
-		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
+			return plugin;	
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
+		
 	}
 	
 	public static Object getPluginWithoutDependencies(DescripteurPlugin pluginDescriptor) {
