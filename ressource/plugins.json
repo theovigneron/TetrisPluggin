@@ -1,20 +1,61 @@
 {
     "appli.interfaces.ITetrisGame": {
-        "name": "TetrisGame",
-        "class": "plugins.TetrisGame",
+        "nom": "TetrisGame",
+        "classname": "tetris.Tetris",
         "description": "Jeux",
-        "dependencies": [
+        "dependances": [
             {
-                "interface": "appli.interfaces.ITetrisDisplay"
+                "interface": "appli.interfaces.ITableau"
             }
         ],
-        "type": "Game"
-   },
-   "appli.interfaces.ITetrisDisplay": {
-        "name": "TetrisDisplay",
-        "class": "plugins.TetrisDisplay",
-        "description": "Application clicker avec un paysan",
-        "dependencies": [],
-        "type": "Affichage"
+        "type": "Launcher"
+    },
+    // "appli.interfaces.ITableau": {
+    //     "nom": "TransactionNormal",
+    //     "classname": "tetris.Tableau",
+    //     "description": "Plateau",
+    //     "dependances": [
+    //         {
+    //             "interface": "appli.interfaces.IForme"
+    //         }
+    //     ],
+    //     "type": "Jeux"
+    // },
+    "appli.interfaces.ITableau": {
+        "nom": "TransactionInverse",
+        "classname": "plugins.TableauInverse",
+        "description": "Plateau",
+        "dependances": [
+            {
+                "interface": "appli.interfaces.IForme"
+            }
+        ],
+        "type": "Jeux"
+    },
+    "appli.interfaces.IForme": {
+        "nom": "FormeBase",
+        "classname": "tetris.Forme",
+        "description": "Forme de base du jeux",
+        "dependances": [
+            {
+            "interface": "appli.interfaces.ITetronimos"
+            }
+        ],
+        "type": "Forme"
+    },
+    // "appli.interfaces.ITetronimos": {
+    //     "nom": "TetronimosBase",
+    //     "classname": "tetris.Tetrominos",
+    //     "description": "Enum Tetronimos de base",
+    //     "dependances": [],
+    //     "type": "Game"
+    // },
+    "appli.interfaces.ITetronimos": {
+        "nom": "TetronimosPlugins",
+        "classname": "plugins.TetronimosPlugins",
+        "description": "Jeux tetris n'utilisant que les carré",
+        "dependances": [],
+        "type": "Forme"
     }
+
 }

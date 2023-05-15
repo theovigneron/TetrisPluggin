@@ -1,10 +1,20 @@
 {
     "appli.interfaces.ITetrisGame": {
-        "name": "TetrisGame",
-        "dependencies": [
+        "nom": "TetrisGame",
+        "dependances": [
             { 
-                "name" : "TetrisDisplay", 
-        	    "dependencies" : []
+                "nom" : "TransactionInverse", 
+        	    "dependances" : [
+                    {
+                        "nom": "FormeBase",
+                        "dependances": [
+                            { 
+                                "nom" : "TetronimosPlugins", 
+                                "dependances" : []
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }

@@ -1,3 +1,4 @@
 # TetrisPluggin
 
-Projet Plugin Tetris
+Pour executer le tetris vous devez lancer la classe Loader.
+
